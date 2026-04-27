@@ -296,7 +296,7 @@ care-eat/
 
 ---
 
-## 🪟 16. 가상 스크롤
+## 🧾 16. 가상 스크롤
 
 - `react-virtualized` List 적용
 - 화면에 보이는 카드만 DOM에 렌더링
