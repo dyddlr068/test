@@ -1,6 +1,7 @@
 # **CareEat - AI 영양소 분석 기반 식재료·영양제 추천 플랫폼**
 
-![image.png](attachment:61de3b37-3e0f-455b-8bdf-c9cdb1421cef:image.png)
+<img width="1472" height="654" alt="image" src="https://github.com/user-attachments/assets/7199030a-6b4d-426c-81d9-8406e6ef7224" />
+
 
 # **📌 *1. 기획 의도***
 
