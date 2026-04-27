@@ -27,11 +27,7 @@
 
 | 이름 | GitHub | 주요 작업 |
 | --- | --- | --- |
-| 전시현(팀장)
- | 아이디 | 🔹Redux 전체 모듈 설계 및 구현 (auth, favorite, history)
-🔹홈 페이지 구현 (증상 입력, Gemini AI 분석 연동)
-🔹결과 페이지 공통 UI 구현 (영양제/식재료 탭 레이아웃)
-🔹App.jsx 라우터 구성 및 ProtetcedRoute 구현 |
+| 전시현(팀장)| 아이디 | 🔹Redux 전체 모듈 설계 및 구현 (auth, favorite, history)🔹홈 페이지 구현 (증상 입력, Gemini AI 분석 연동)🔹결과 페이지 공통 UI 구현 (영양제/식재료 탭 레이아웃)🔹App.jsx 라우터 구성 및 ProtetcedRoute 구현 |
 | 이민주(팀원)
  | 아이디 | 🔹영양제 탭 UI 구현 (네이버 쇼핑 API 연동)
 🔹식재료 탭 UI 구현 (네이버 쇼핑 API 연동)
