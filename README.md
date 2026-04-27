@@ -282,6 +282,12 @@ care-eat/
 | | `IntersectionObserver` → 20개씩 자동 추가 로드 (무한 스크롤) | `RecipeContainer.jsx` |
 | **🔗 구매 링크** | 재료 클릭 → 네이버 쇼핑 / 쿠팡 구매 페이지 이동 | `coupangLink.js` |
 | | `extractIngredientName()` 으로 수량·단위 제거 후 검색 키워드 사용 | `foodApi.js` |
+<img width="1196" height="637" alt="image" src="https://github.com/user-attachments/assets/bd06a2a7-ec41-466f-b019-5a51c0b89cf0" />
+<img width="1177" height="844" alt="image" src="https://github.com/user-attachments/assets/12b5b168-bf5c-41db-a5d7-8dd789f3ce88" />
+<img width="1174" height="878" alt="image" src="https://github.com/user-attachments/assets/58de9d85-b1c7-4e07-813e-cd9492ab746c" />
+
+
+
 
 ---
 
@@ -331,6 +337,12 @@ care-eat/
 | **최적화 전** | 없음 (더미데이터 1000개 주입 테스트) | **459.8ms** | - |
 | **가상 스크롤 적용** | `react-virtualized` (List + AutoSizer + Grid) | **46.2ms** | 90% ⬇️ |
 | **최종 (useCallback 적용)** | `react-virtualized` + `useCallback` + `memo` | **7.2ms** | 98.4% ⬇️ |
+<img width="1397" height="684" alt="image" src="https://github.com/user-attachments/assets/1b8956a1-893a-4e55-8aa1-5c8ca8e094a2" />
+<img width="1390" height="766" alt="image" src="https://github.com/user-attachments/assets/d7f4a662-e0a2-4db8-b498-1221f62c8479" />
+<img width="1479" height="768" alt="image" src="https://github.com/user-attachments/assets/3c33e413-6d27-4b69-820c-69c49b99755e" />
+
+
+
 
 ---
 
@@ -340,6 +352,32 @@ care-eat/
 - **태블릿**: 2열 그리드
 - **모바일**: 1열 그리드
 - SCSS 믹스인 기반 반응형 스타일 적용
+- <img width="1884" height="872" alt="image" src="https://github.com/user-attachments/assets/032f9c8b-32de-4132-a545-b02d728bf26f" />
+<img width="597" height="780" alt="image" src="https://github.com/user-attachments/assets/5ff245d2-1857-4d13-ae3d-8041dac3bfad" />
+
+
+
+---
+
+## 📊 20. Flow Chart
+
+> [플로우차트 링크](https://링크입력)
+
+---
+
+## 👀 21. 주요 기능 실행 화면
+
+- 홈 페이지 (증상 입력)
+- 결과 페이지 (영양제/식재료 탭)
+- 레시피 페이지 (카드 목록, 모달 팝업)
+- 즐겨찾기 페이지 (필터탭, 메모편집)
+- 검색기록 페이지 (리스트뷰, 타임라인뷰)
+
+---
+
+## 👥 22. 팀원별 작업 기록
+
+> [개인 작업일지 링크](https://링크입력)
 
 ---
 
