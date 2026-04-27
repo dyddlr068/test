@@ -1,10 +1,11 @@
 <div align="center">
 
-# <img width="1472" height="654" alt="image" src="https://github.com/user-attachments/assets/44e93682-da84-4aac-b801-85c26ad2407e" />
-🥗 CareEat
+<img width="100%" alt="CareEat Banner" src="https://github.com/user-attachments/assets/44e93682-da84-4aac-b801-85c26ad2407e" />
+
+# 🥗 CareEat
 ### AI 영양소 분석 기반 식재료·영양제 추천 플랫폼
 
- 증상을 입력하면 AI가 영양소를 분석하고, 영양제·식재료·레시피까지 한번에 추천해드립니다. 
+> 증상을 입력하면 AI가 영양소를 분석하고, 영양제·식재료·레시피까지 한번에 추천해드립니다.
 
 <br/>
 
@@ -41,9 +42,9 @@
 
 | 이름 | GitHub | 주요 작업 |
 |------|--------|-----------|
-| 전시현<br/>(팀장) | [@s1hyun7215](https://github.com) | 🔹 Redux 전체 모듈 설계 및 구현 (auth, favorite, history)<br/>🔹 홈 페이지 구현 (증상 입력, Gemini AI 분석 연동)<br/>🔹 결과 페이지 공통 UI 구현 (영양제/식재료 탭 레이아웃)<br/>🔹 App.jsx 라우터 구성 및 ProtectedRoute 구현 |
-| 이민주<br/>(팀원) | [@danggiju](https://github.com) | 🔹 영양제 탭 UI 구현 (네이버 쇼핑 API 연동)<br/>🔹 식재료 탭 UI 구현 (네이버 쇼핑 API 연동)<br/>🔹 영양제/식재료 카드 컴포넌트 구현<br/>🔹 즐겨찾기 추가 버튼 연동<br/>🔹 레시피 페이지 이동 버튼 연동 |
-| 권용익<br/>(팀원) | [@dyddlr068](https://github.com) | 🔹 레시피 페이지 구현<br/>&nbsp;&nbsp;&nbsp;&nbsp;1. 식약처 API 호출 및 데이터 파싱<br/>&nbsp;&nbsp;&nbsp;&nbsp;2. 레시피 카드 3열 반응형 그리드<br/>&nbsp;&nbsp;&nbsp;&nbsp;3. 카드 클릭 시 재료/조리방법 모달 팝업<br/>&nbsp;&nbsp;&nbsp;&nbsp;4. 재료별 네이버/쿠팡 구매 링크<br/>&nbsp;&nbsp;&nbsp;&nbsp;5. 무한 스크롤 (20개씩 로딩)<br/>🔹 즐겨찾기 페이지 구현<br/>&nbsp;&nbsp;&nbsp;&nbsp;1. 필터 탭 (전체/영양제/식재료/레시피)<br/>&nbsp;&nbsp;&nbsp;&nbsp;2. 메모 인라인 편집/삭제<br/>🔹 검색기록 페이지 구현<br/>&nbsp;&nbsp;&nbsp;&nbsp;1. 리스트/타임라인 뷰 토글<br/>&nbsp;&nbsp;&nbsp;&nbsp;2. 항목 클릭 시 결과 페이지 재진입<br/>&nbsp;&nbsp;&nbsp;&nbsp;3. 개별/전체 삭제<br/>🔹 성능 최적화<br/>&nbsp;&nbsp;&nbsp;&nbsp;1. react-virtualized 가상 스크롤 적용<br/>&nbsp;&nbsp;&nbsp;&nbsp;2. useMemo, useCallback 최적화 |
+| 전시현<br/>(팀장) | [@s1hyun7215](https://github.com/s1hyun7215) | 🔹 Redux 전체 모듈 설계 및 구현 (auth, favorite, history)<br/>🔹 홈 페이지 구현 (증상 입력, Gemini AI 분석 연동)<br/>🔹 결과 페이지 공통 UI 구현 (영양제/식재료 탭 레이아웃)<br/>🔹 App.jsx 라우터 구성 및 ProtectedRoute 구현 |
+| 이민주<br/>(팀원) | [@danggiju](https://github.com/danggiju) | 🔹 영양제 탭 UI 구현 (네이버 쇼핑 API 연동)<br/>🔹 식재료 탭 UI 구현 (네이버 쇼핑 API 연동)<br/>🔹 영양제/식재료 카드 컴포넌트 구현<br/>🔹 즐겨찾기 추가 버튼 연동<br/>🔹 레시피 페이지 이동 버튼 연동 |
+| 권용익<br/>(팀원) | [@dyddlr068](https://github.com/dyddlr068) | 🔹 레시피 페이지 구현<br/>&nbsp;&nbsp;1. 식약처 API 호출 및 데이터 파싱<br/>&nbsp;&nbsp;2. 레시피 카드 3열 반응형 그리드<br/>&nbsp;&nbsp;3. 카드 클릭 시 재료/조리방법 모달 팝업<br/>&nbsp;&nbsp;4. 재료별 네이버/쿠팡 구매 링크<br/>&nbsp;&nbsp;5. 무한 스크롤 (20개씩 로딩)<br/>🔹 즐겨찾기 페이지 구현<br/>&nbsp;&nbsp;1. 필터 탭 (전체/영양제/식재료/레시피)<br/>&nbsp;&nbsp;2. 메모 인라인 편집/삭제<br/>🔹 검색기록 페이지 구현<br/>&nbsp;&nbsp;1. 리스트/타임라인 뷰 토글<br/>&nbsp;&nbsp;2. 항목 클릭 시 결과 페이지 재진입<br/>&nbsp;&nbsp;3. 개별/전체 삭제<br/>🔹 성능 최적화<br/>&nbsp;&nbsp;1. react-virtualized 가상 스크롤 적용<br/>&nbsp;&nbsp;2. useMemo, useCallback 최적화 |
 
 ---
 
@@ -120,22 +121,13 @@ uvicorn main:app --reload
 ```
 care-eat/
 ├── .env
-├── .env.example
-├── index.html
-├── package.json
-├── vite.config.js
-│
 ├── backend/
 │   ├── main.py
-│   ├── requirements.txt
-│   └── .venv/
-│
+│   └── requirements.txt
 └── src/
     ├── App.jsx
     ├── main.jsx
-    │
     ├── assets/
-    │
     ├── components/
     │   ├── common/
     │   │   ├── Button/
@@ -145,51 +137,34 @@ care-eat/
     │   └── layout/
     │       ├── Layout/
     │       └── Navbar/
-    │
     ├── containers/
-    │   ├── NavbarContainer.jsx
     │   ├── ProtectedRoute.jsx
-    │   ├── LoginContainer.jsx
-    │   ├── RegisterContainer.jsx
     │   ├── HomeContainer.jsx
-    │   ├── ResultContainer.jsx
-    │   ├── SupplementsContainer.jsx
-    │   ├── FoodsContainer.jsx
     │   ├── RecipeContainer.jsx
     │   ├── FavoritesContainer.jsx
     │   └── HistoryContainer.jsx
-    │
     ├── pages/
-    │   ├── Login/
-    │   ├── Register/
     │   ├── Home/
-    │   ├── Result/
     │   ├── Recipe/
     │   ├── Favorites/
     │   ├── History/
     │   └── NotFound/
-    │
     ├── services/
     │   ├── axiosInstance.js
     │   ├── geminiApi.js
     │   ├── naverApi.js
     │   ├── foodApi.js
     │   └── coupangLink.js
-    │
     ├── modules/
-    │   ├── index.jsx
     │   ├── auth.jsx
     │   ├── favorite.jsx
     │   └── history.jsx
-    │
     ├── hooks/
     │   ├── useGemini.js
     │   └── useDebounce.js
-    │
     └── styles/
         ├── _variables.scss
         ├── _mixins.scss
-        ├── _reset.scss
         └── global.scss
 ```
 
@@ -282,16 +257,16 @@ care-eat/
 | | `IntersectionObserver` → 20개씩 자동 추가 로드 (무한 스크롤) | `RecipeContainer.jsx` |
 | **🔗 구매 링크** | 재료 클릭 → 네이버 쇼핑 / 쿠팡 구매 페이지 이동 | `coupangLink.js` |
 | | `extractIngredientName()` 으로 수량·단위 제거 후 검색 키워드 사용 | `foodApi.js` |
-<img width="1196" height="637" alt="image" src="https://github.com/user-attachments/assets/bd06a2a7-ec41-466f-b019-5a51c0b89cf0" />
-<img width="1177" height="844" alt="image" src="https://github.com/user-attachments/assets/12b5b168-bf5c-41db-a5d7-8dd789f3ce88" />
-<img width="1174" height="878" alt="image" src="https://github.com/user-attachments/assets/58de9d85-b1c7-4e07-813e-cd9492ab746c" />
 
+<br/>
 
-
+<img width="100%" alt="핵심기능1" src="https://github.com/user-attachments/assets/bd06a2a7-ec41-466f-b019-5a51c0b89cf0" />
+<img width="100%" alt="핵심기능2" src="https://github.com/user-attachments/assets/12b5b168-bf5c-41db-a5d7-8dd789f3ce88" />
+<img width="100%" alt="핵심기능3" src="https://github.com/user-attachments/assets/58de9d85-b1c7-4e07-813e-cd9492ab746c" />
 
 ---
 
-## 📝 14. CRUD 기능
+## 📝 13. CRUD 기능
 
 | 기능 | 구현 내용 | 적용 기술/코드 |
 |------|-----------|----------------|
@@ -303,7 +278,7 @@ care-eat/
 
 ---
 
-## ⚡ 15. SPA (Routing)
+## ⚡ 14. SPA (Routing)
 
 | 기능 | 구현 내용 | 적용 기술/코드 |
 |------|-----------|----------------|
@@ -313,7 +288,7 @@ care-eat/
 
 ---
 
-## 🧩 16. 코드 스플리팅
+## 🧩 15. 코드 스플리팅
 
 - `App.jsx`에 모든 Container를 `lazy()` + `Suspense`로 적용
 - 페이지 접속 시 해당 컴포넌트만 로딩
@@ -321,7 +296,7 @@ care-eat/
 
 ---
 
-## 📜 17. 가상 스크롤
+## 🪟 16. 가상 스크롤
 
 - `react-virtualized` List 적용
 - 화면에 보이는 카드만 DOM에 렌더링
@@ -330,41 +305,89 @@ care-eat/
 
 ---
 
-## 🚀 18. 성능 최적화
+## 🚀 17. 성능 최적화
 
 | 단계 | 적용 최적화 | Render 시간 | 개선율 |
 |------|-------------|-------------|--------|
 | **최적화 전** | 없음 (더미데이터 1000개 주입 테스트) | **459.8ms** | - |
 | **가상 스크롤 적용** | `react-virtualized` (List + AutoSizer + Grid) | **46.2ms** | 90% ⬇️ |
 | **최종 (useCallback 적용)** | `react-virtualized` + `useCallback` + `memo` | **7.2ms** | 98.4% ⬇️ |
-<img width="1397" height="684" alt="image" src="https://github.com/user-attachments/assets/1b8956a1-893a-4e55-8aa1-5c8ca8e094a2" />
-<img width="1390" height="766" alt="image" src="https://github.com/user-attachments/assets/d7f4a662-e0a2-4db8-b498-1221f62c8479" />
-<img width="1479" height="768" alt="image" src="https://github.com/user-attachments/assets/3c33e413-6d27-4b69-820c-69c49b99755e" />
 
+<br/>
 
-
+<img width="100%" alt="최적화전" src="https://github.com/user-attachments/assets/1b8956a1-893a-4e55-8aa1-5c8ca8e094a2" />
+<img width="100%" alt="가상스크롤적용" src="https://github.com/user-attachments/assets/d7f4a662-e0a2-4db8-b498-1221f62c8479" />
+<img width="100%" alt="최종최적화" src="https://github.com/user-attachments/assets/3c33e413-6d27-4b69-820c-69c49b99755e" />
 
 ---
 
-## 📱 19. 반응형 웹
+## 📱 18. 반응형 웹
 
 - **웹**: 3열 그리드
 - **모바일**: 1열 그리드
 - SCSS 믹스인 기반 반응형 스타일 적용
-- <img width="1884" height="872" alt="image" src="https://github.com/user-attachments/assets/032f9c8b-32de-4132-a545-b02d728bf26f" />
-<img width="597" height="780" alt="image" src="https://github.com/user-attachments/assets/5ff245d2-1857-4d13-ae3d-8041dac3bfad" />
 
+<br/>
 
-
----
-
-## 📊 20. Flow Chart
-
-> [플로우차트 링크](https://링크입력)
+<img width="100%" alt="반응형웹" src="https://github.com/user-attachments/assets/032f9c8b-32de-4132-a545-b02d728bf26f" />
+<img width="100%" alt="반응형모바일" src="https://github.com/user-attachments/assets/5ff245d2-1857-4d13-ae3d-8041dac3bfad" />
 
 ---
 
-## 👀 21. 주요 기능 실행 화면
+## 📊 19. Flow Chart
+
+<details>
+<summary>🏠 홈 페이지</summary>
+
+![home](docs/flowchart/home.png)
+
+</details>
+
+<details>
+<summary>🔐 로그인 / 회원가입</summary>
+
+![register_login](docs/flowchart/register_login.png)
+
+</details>
+
+<details>
+<summary>📋 결과 페이지</summary>
+
+![result](docs/flowchart/result.png)
+
+</details>
+
+<details>
+<summary>🍳 레시피 페이지</summary>
+
+![recipe](docs/flowchart/recipe.png)
+
+</details>
+
+<details>
+<summary>⭐ 즐겨찾기</summary>
+
+![favorite](docs/flowchart/favorite.png)
+
+</details>
+
+<details>
+<summary>🕐 검색기록</summary>
+
+![history](docs/flowchart/history.png)
+
+</details>
+
+<details>
+<summary>🔀 Redux 흐름</summary>
+
+![redux](docs/flowchart/redux.png)
+
+</details>
+
+---
+
+## 👀 20. 주요 기능 실행 화면
 
 - 홈 페이지 (증상 입력)
 - 결과 페이지 (영양제/식재료 탭)
@@ -374,15 +397,15 @@ care-eat/
 
 ---
 
-## 👥 22. 팀원별 작업 기록
+## 👥 21. 팀원별 작업 기록
 
-- [전시현 작업일지](https://링크입력) </br>
-- [이민주 작업일지](https://링크입력) </br>
+- [전시현 작업일지](https://링크입력)
+- [이민주 작업일지](https://링크입력)
 - [권용익 작업일지](https://www.notion.so/CareEat-34b7510671e7800aa3dbebd9a09bb623?source=copy_link)
 
 ---
 
-## 💡 23. 향후 발전 방향
+## 💡 22. 향후 발전 방향
 
 - 🤖 **증상 분석 정확도 향상** — Gemini 프롬프트 고도화 및 사용자 피드백 반영
 - 🛒 **쇼핑 연동 확대** — 쿠팡 공식 API 연동 및 가격 비교 기능 추가
@@ -392,7 +415,7 @@ care-eat/
 
 ---
 
-## 🏁 24. 프로젝트 마무리
+## 🏁 23. 프로젝트 마무리
 
 이번 프로젝트 **「CareEat」** 은 사용자의 건강 증상을 자연어로 입력하면 AI가 분석하여 필요한 영양소·영양제·식재료를 추천하고, 레시피와 쇼핑 구매 링크까지 연결해주는 건강 관리 웹 애플리케이션을 목표로 개발하였습니다.
 
@@ -404,6 +427,6 @@ care-eat/
 
 <div align="center">
 
-**CareEat** · 2025 · React + Gemini AI
+**CareEat** · 2026 · React + Gemini AI
 
 </div>
