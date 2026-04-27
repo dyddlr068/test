@@ -1,6 +1,7 @@
 <div align="center">
 
-# 🥗 CareEat
+# <img width="1472" height="654" alt="image" src="https://github.com/user-attachments/assets/44e93682-da84-4aac-b801-85c26ad2407e" />
+🥗 CareEat
 ### AI 영양소 분석 기반 식재료·영양제 추천 플랫폼
 
 > 증상을 입력하면 AI가 영양소를 분석하고, 영양제·식재료·레시피까지 한번에 추천해드립니다.
@@ -314,7 +315,7 @@ care-eat/
 
 ---
 
-## 🪟 17. 가상 스크롤
+## 📜 17. 가상 스크롤
 
 - `react-virtualized` List 적용
 - 화면에 보이는 카드만 DOM에 렌더링
