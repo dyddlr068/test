@@ -1,16 +1,426 @@
-# React + Vite(첫번째 프로젝트)
+# **CareEat - AI 영양소 분석 기반 식재료·영양제 추천 플랫폼**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![image.png](attachment:61de3b37-3e0f-455b-8bdf-c9cdb1421cef:image.png)
 
-Currently, two official plugins are available:
+# **📌 *1. 기획 의도***
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- 현대인의 건강 관리 어려움에서 출발하여
 
-## React Compiler
+       증상을 입력하면 AI가 필요한 영양소를 분석해 영양제와 식재료를 추천해주고
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+       식재료는 레시피까지 연결, 바로 구매할 수 있는 쇼핑 링크를 제공하여 모두가 스마트하게
 
-## Expanding the ESLint configuration
+       건강관리 하면 좋을 것 같아 기획하게 되었습니다.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+# **🎯 *2. 기획 목표***
+
+- AI 기반 맞춤 영양소 분석 및 추천 구현
+- 영양제/식재료/레시피 통합 추천 플로우 구현
+- 네이버쇼핑/쿠팡 연동으로 즉시 구매 가능한 UX 구현
+- 즐겨찾기/검색기록으로 개인화 경험 제공
+
+---
+
+# **👨‍💻 *3. 팀원 및 역할 분담***
+
+| 이름 | GitHub | 주요 작업 |
+| --- | --- | --- |
+| 전시현
+(팀장) | 아이디 | 🔹Redux 전체 모듈 설계 및 구현 (auth, favorite, history)
+🔹홈 페이지 구현 (증상 입력, Gemini AI 분석 연동)
+🔹결과 페이지 공통 UI 구현 (영양제/식재료 탭 레이아웃)
+🔹App.jsx 라우터 구성 및 ProtetcedRoute 구현 |
+| 이민주
+(팀원) | 아이디 | 🔹영양제 탭 UI 구현 (네이버 쇼핑 API 연동)
+🔹식재료 탭 UI 구현 (네이버 쇼핑 API 연동)
+🔹영양제/식재료 카드 컴포넌트 구현
+🔹즐겨찾기 추가 버튼 연동
+🔹레시피 페이지 이동 버튼 연동 |
+| 권용익
+(팀원) | 아이디 | 🔹레시피 페이지 구현
+  1. 약처 API 호출 및 데이터 파싱
+  2. 레시피 카드 3열 반응형 그리드
+  3. 카드 클릭 시 재료/조리방법 모    달 팝업
+  4. 재료별 네이버/쿠팡 구매 링크
+  5. 무한 스크롤 (20개씩 로딩)
+🔹즐겨찾기 페이지 구현
+  1. 필터 탭 (전체/영양제/식재료/레시피)
+  2. 메모 인라인 편집/삭제
+🔹검색기록 페이지 구현
+  1. 리스트/타임라인 뷰 토글
+  2. 항목 클릭 시 결과 페이지 재진입    
+  3. 개별/전체 삭제
+🔹성능 최적화
+  1. react-virtualized 가상 스크롤 적용
+  2. useMemo, useCallback 최적화 |
+
+---
+
+# **🛠 *4. 기술 스택***
+
+| 카테고리 | 기술 |
+| --- | --- |
+| 빌드 툴 | Vite |
+| 프레임워크 | React 19 |
+| 상태관리 | Redux + react-redux |
+| 스타일링 | SCSS Modules |
+| 라우팅 | react-router-dom |
+| 비동기 | axios |
+| 가상화 | react-virtualized |
+| AI | Google Gemini API |
+| 백엔드 | FastAPI, uvicorn |
+
+---
+
+# **⚙️ *5. 사용 라이브러리 및 버전***
+
+| 라이브러리 | 버전 |
+| --- | --- |
+| react | ^19.2.4 |
+| react-router-dom | ^7.14.1 |
+| redux | ^4.2.1 |
+| react-redux | ^9.2.0 |
+| axios | ^1.15.0 |
+| react-virtualized | ^9.22.6 |
+| sass | ^1.99.0 |
+| react-icons | ^5.6.0 |
+
+---
+
+# **💻 *6. 개발 환경***
+
+- 에디터: VSCode
+- 버전 관리: GitHub + Sourcetree
+- 브랜치 전략: main → develop → feature/기능명
+- 패키지 매니저: npm
+- OS: Windows
+
+---
+
+# ***⚙️* 7. 환경 변수 및 설치**
+
+`VITE_FOOD_API_KEY=식약처 API 키
+VITE_NAVER_CLIENT_ID=네이버 클라이언트 ID
+VITE_NAVER_CLIENT_SECRET=네이버 클라이언트 시크릿
+VITE_GEMINI_API_KEY=Gemini API 키`
+
+- npm install --legacy-peer-deps
+
+---
+
+# **🗂️ *8. 프로젝트 구조***
+
+care-eat/
+├── .env
+├── .env.example
+├── index.html
+├── package.json
+├── vite.config.js
+│
+├── backend/
+│   ├── [main.py](http://main.py/)
+│   ├── requirements.txt
+│   └── .venv/
+│
+└── src/
+├── App.jsx
+├── main.jsx
+│
+├── assets/
+│
+├── components/
+│   ├── common/
+│   │   ├── Button/
+│   │   ├── EmptyState/
+│   │   ├── LoadingSpinner/
+│   │   └── Skeleton/
+│   └── layout/
+│       ├── Layout/
+│       └── Navbar/
+│
+├── containers/
+│   ├── NavbarContainer.jsx
+│   ├── ProtectedRoute.jsx
+│   ├── LoginContainer.jsx
+│   ├── RegisterContainer.jsx
+│   ├── HomeContainer.jsx
+│   ├── ResultContainer.jsx
+│   ├── SupplementsContainer.jsx
+│   ├── FoodsContainer.jsx
+│   ├── RecipeContainer.jsx
+│   ├── FavoritesContainer.jsx
+│   └── HistoryContainer.jsx
+│
+├── pages/
+│   ├── Login/
+│   ├── Register/
+│   ├── Home/
+│   ├── Result/
+│   │   ├── Result.jsx
+│   │   ├── Supplements/
+│   │   └── Foods/
+│   ├── Recipe/
+│   │   ├── Recipe.jsx
+│   │   └── Recipe.module.scss
+│   ├── Favorites/
+│   │   ├── Favorites.jsx
+│   │   └── Favorites.module.scss
+│   ├── History/
+│   │   ├── History.jsx
+│   │   └── History.module.scss
+│   └── NotFound/
+│
+├── services/
+│   ├── axiosInstance.js
+│   ├── geminiApi.js
+│   ├── naverApi.js
+│   ├── foodApi.js
+│   └── coupangLink.js
+│
+├── modules/
+│   ├── index.jsx
+│   ├── auth.jsx
+│   ├── recommend.jsx
+│   ├── setting.jsx
+│   ├── favorite.jsx
+│   └── history.jsx
+│
+├── hooks/
+│   ├── useGemini.js
+│   └── [README.md](http://readme.md/)
+│
+└── styles/
+├── _variables.scss
+├── _mixins.scss
+├── _reset.scss
+└── global.scss
+
+---
+
+# **🗺️ 9. *라우팅 구조***
+
+| 경로 | 페이지 | 접근 |
+| --- | --- | --- |
+| `/` | 홈 | 로그인 필요 |
+| `/login` | 로그인 | 공개 |
+| `/register` | 회원가입 | 공개 |
+| `/result` | 결과 | 로그인 필요 |
+| `/recipe/:foodId` | 레시피 | 로그인 필요 |
+| `/favorites` | 즐겨찾기 | 로그인 필요 |
+| `/history` | 검색기록 | 로그인 필요 |
+
+---
+
+# **🔀 *10. Redux 상태 관리 흐름***
+
+- auth 모듈: 로그인/로그아웃 상태, localStorage 동기화
+- favorite 모듈: 즐겨찾기 추가/삭제/메모수정, localStorage 동기화
+- history 모듈: 검색기록 추가/삭제/전체삭제, localStorage 동기화
+- connect HOC 방식 사용 (useSelector/useDispatch 금지)
+
+---
+
+# **📋 *11. API 명세서***
+
+## 🔹 1. 식약처 조리식품 레시피 API
+
+| 항목 | 내용 |
+| --- | --- |
+| **API 이름** | 식약처 조리식품 레시피 API |
+| **기능 설명** | 식재료 이름으로 관련 레시피 목록을 조회 |
+| **요청 URL** | `https://openapi.foodsafetykorea.go.kr/api/{API_KEY}/COOKRCP01/json/{start}/{end}/RCP_PARTS_DTLS={ingredient}` |
+| **Method** | GET |
+| **요청 파라미터** | `API_KEY` : 발급받은 식약처 API 키 (URL 경로에 포함) / `start` : 조회 시작 인덱스 (예: `1`) / `end` : 조회 종료 인덱스 (예: `20`) / `RCP_PARTS_DTLS` : 검색할 식재료명 (URL 인코딩 필요) |
+| **요청 예시** | `https://openapi.foodsafetykorea.go.kr/api/e580068b/COOKRCP01/json/1/20/RCP_PARTS_DTLS=%EC%8B%9C%EA%B8%88%EC%B9%98` |
+| **요청 헤더** | 없음 |
+| **응답 형식** | JSON |
+| **응답 예시 (성공)** | `{ "COOKRCP01": { "row": [ { "RCP_NM": "시금치나물", "RCP_PARTS_DTLS": "시금치 200g, 소금 약간", "INFO_ENG": "45", "INFO_CAR": "5.2", "INFO_PRO": "3.1", "INFO_FAT": "1.0" } ] } }` |
+| **응답 코드** | 200 OK |
+| **에러 예시** | `{ "COOKRCP01": { "RESULT": { "MSG": "해당하는 데이터가 없습니다.", "CODE": "INFO-000" } } }` |
+| **에러 코드** | 400 Bad Request (잘못된 요청) / 401 Unauthorized (API 키 오류) |
+| **비고** | API 키는 `.env`의 `VITE_FOOD_API_KEY`로 관리 / 식재료명은 `encodeURIComponent()`로 인코딩 후 요청 / 20개씩 페이지네이션하여 무한 스크롤 구현 |
+
+---
+
+## 🔹 2. 네이버 쇼핑 검색 API
+
+| 항목 | 내용 |
+| --- | --- |
+| **API 이름** | 네이버 쇼핑 검색 API |
+| **기능 설명** | 키워드로 네이버 쇼핑 상품을 검색하여 영양제·식재료 구매 링크 제공 |
+| **요청 URL** | `https://openapi.naver.com/v1/search/shop.json` (CORS 우회를 위해 Vite 프록시 `/naver-api` 경유) |
+| **Method** | GET |
+| **요청 파라미터** | `query` : 검색 키워드 (예: `루테인 영양제`) / `display` : 결과 수 (기본값: `10`, 최대 100) / `start` : 시작 위치 (기본값: `1`) / `sort` : 정렬 방식 (`sim` 유사도순 / `date` 날짜순 / `asc/dsc` 가격순) |
+| **요청 헤더** | `X-Naver-Client-Id` : 네이버 앱 Client ID / `X-Naver-Client-Secret` : 네이버 앱 Client Secret |
+| **응답 형식** | JSON |
+| **응답 예시 (성공)** | `{ "items": [ { "title": "루테인 영양제 눈건강", "link": "https://...", "image": "https://...", "lprice": "12000", "mallName": "GS샵", "brand": "종근당건강" } ] }` |
+| **응답 코드** | 200 OK |
+| **에러 예시** | `{ "errorCode": "SE01", "errorMessage": "Incorrect query request" }` |
+| **에러 코드** | 400 Bad Request (잘못된 요청) / 401 Unauthorized (Client ID/Secret 오류) / 429 Too Many Requests (호출 한도 초과) |
+| **비고** | CORS 제한으로 직접 호출 불가 → Vite 프록시(`/naver-api`) 경유 / Client ID/Secret은 `.env`의 `VITE_NAVER_CLIENT_ID`, `VITE_NAVER_CLIENT_SECRET`으로 관리 / 응답 `title`에 HTML 태그 포함 → `replace(/<[^>]*>/g, '')`로 제거 / 하루 25,000건 무료 호출 제한 |
+
+---
+
+## 🔹 3. Gemini AI 증상 분석 API (내부 API)
+
+| 항목 | 내용 |
+| --- | --- |
+| **API 이름** | Gemini AI 증상 분석 API |
+| **기능 설명** | 사용자가 입력한 증상을 AI가 분석하여 영양소·영양제·식재료를 추천 |
+| **요청 URL** | `/api/analyze` (Vite 프록시 → FastAPI `http://127.0.0.1:8000/api/analyze` → Gemini API) |
+| **Method** | POST |
+| **요청 파라미터** | `symptom` : 사용자가 입력한 증상 텍스트 (예: `"눈이 침침해요"`) — Request Body |
+| **요청 예시** | `POST /api/analyze` / `Content-Type: application/json` / `{ "symptom": "눈이 침침하고 피로해요" }` |
+| **요청 헤더** | `Content-Type` : `application/json` |
+| **응답 형식** | JSON |
+| **응답 예시 (성공)** | `{ "nutrients": [ { "name": "루테인", "reason": "눈 건강에 필수적인 항산화 성분" } ], "supplements": [ { "keyword": "루테인 영양제" } ], "foods": [ { "name": "시금치", "description": "루테인이 풍부한 녹색 채소" } ] }` |
+| **응답 코드** | 200 OK |
+| **에러 예시** | `{ "detail": "AI 분석에 실패했습니다. 잠시 후 다시 시도해주세요." }` |
+| **에러 코드** | 400 Bad Request (증상 미입력) / 500 Internal Server Error (Gemini API 호출 실패) |
+| **비고** | Gemini API 키는 `backend/.env`(서버)에서만 관리 → 브라우저에 노출되지 않음 / FastAPI 백엔드 실행 필요: `uvicorn main:app --reload` |
+
+---
+
+# **🛠️ *12. 핵심 기능 구현***
+
+| 기능 | 구현 내용 | 적용 기술/코드 |
+| --- | --- | --- |
+| **AI 증상 분석** | 사용자가 자연어로 입력한 증상을 Gemini AI가 분석하여 필요한 영양소를 추출합니다. | `useGemini.js`, `geminiApi.js` |
+|  | 증상 텍스트를 FastAPI 백엔드로 전송 → Gemini API 호출 → 영양소·영양제·식재료 추천 결과 반환 | `geminiApi.js` 내 `analyzeSymptom()` |
+|  | `useDebounce` 커스텀 훅으로 입력 중 불필요한 API 호출 방지 (300ms 디바운스) | `hooks/useDebounce.js` |
+| **영양제/식재료 쇼핑 연동** | Gemini 분석 결과의 영양소를 기반으로 네이버 쇼핑 API에서 영양제·식재료 검색 결과를 표시합니다. | `naverApi.js` 내 `searchShop()` |
+|  | 응답 데이터의 HTML 태그를 `replace(/<[^>]*>/g, '')` 로 제거 후 상품명·이미지·가격 표시 | `naverApi.js` |
+|  | CORS 우회를 위해 Vite 프록시(`/naver-api`) 를 통해 요청 전달 | `vite.config.js` |
+| **레시피 조회** | 식재료 클릭 시 식약처 오픈 API를 호출하여 해당 재료가 포함된 레시피 카드를 표시합니다. | `foodApi.js` 내 `searchRecipesByIngredient()` |
+|  | `react-virtualized` 의 `List` + `AutoSizer` 로 화면에 보이는 카드만 렌더링 (렌더링 시간 87% 개선) | `Recipe.jsx` |
+|  | `IntersectionObserver` 로 스크롤 하단 감지 → 20개씩 자동 추가 로드 (무한 스크롤) | `Recipe.jsx`, `RecipeContainer.jsx` |
+| **재료 구매 링크 이동** | 레시피 상세 모달에서 재료 클릭 시 네이버 쇼핑 / 쿠팡 구매 페이지로 바로 이동합니다. | `Recipe.jsx`, `coupangLink.js` |
+|  | 네이버: `getNaverShoppingSearchUrl()` 로 검색 URL 생성 / 쿠팡: `getCoupangSearchUrl()` 로 딥링크 URL 생성 | `coupangLink.js` |
+|  | `extractIngredientName()` 으로 재료명에서 수량·단위 제거 후 검색 키워드로 사용 | `foodApi.js` |
+
+![image.png](attachment:87c0ff34-4dc4-43f6-8ca4-2e79fcc6d962:image.png)
+
+![image.png](attachment:3a1b4912-413a-4041-bc53-ff096ce6dd95:image.png)
+
+---
+
+![image.png](attachment:83bbcf7e-aef7-411e-9c2b-a30773ab38db:image.png)
+
+# **🔗 *13. 외부 API 연동***
+
+- 식약처 COOKRCP01: 재료명으로 레시피 검색, 재료/조리방법 파싱
+- 네이버 쇼핑: 영양제/식재료 검색 결과 카드 표시
+- 쿠팡: 검색 키워드 기반 링크 생성
+- Gemini: 증상 텍스트 → 영양소 분석 프롬프트 처리
+
+---
+
+# **📝 *14. CRUD 기능***
+
+| 기능 | 구현 내용 | 적용 기술/코드 |
+| --- | --- | --- |
+| **CRUD** | 즐겨찾기와 검색기록의 데이터 생성·조회·수정·삭제 기능을 구현했습니다. | `modules/favorite.jsx`, `modules/history.jsx` |
+| **Create** | **C (Create):** 영양제·식재료·레시피 즐겨찾기 추가, 증상 검색 시 검색기록 자동 저장 | `FavoritesContainer.jsx`, `HistoryContainer.jsx` |
+| **Read** | **R (Read):** 즐겨찾기 목록 조회 (전체/영양제/식재료/레시피 탭 필터), 검색기록 목록 조회 (리스트/타임라인 뷰 토글) | `Favorites.jsx`, `History.jsx` |
+| **Update** | **U (Update):** 즐겨찾기 카드에서 메모를 클릭하여 인라인으로 바로 편집 | `Favorites.jsx` 내 `FavoriteCard` |
+| **Delete** | **D (Delete):** 즐겨찾기 개별 삭제, 검색기록 개별 삭제 및 전체 삭제 | `FavoritesContainer.jsx`, `HistoryContainer.jsx` |
+
+---
+
+# **⚡ *15. SPA***
+
+| 기능 | 구현 내용 | 적용 기술/코드 |
+| --- | --- | --- |
+| **SPA (Routing)** | `react-router-dom` 기반으로 페이지 전환 시 새로고침 없이 화면을 교체하여 빠른 사용자 경험을 제공합니다. | `App.jsx` 내 `<BrowserRouter>`, `<Routes>`, `<Route>` |
+|  | `ProtectedRoute` 로 비로그인 사용자의 접근을 차단하고 `/login` 페이지로 리다이렉트합니다. | `ProtectedRoute.jsx` |
+|  | 검색기록 클릭 시 `navigate()` 로 뒤로가기 없이 결과 페이지에 바로 재진입할 수 있습니다. | `History.jsx` 내 `handleReenter()` |
+
+---
+
+# **🧩 *16. 코드 스플리팅***
+
+- App.jsx에 모든 Container를 lazy + Suspense로 적용
+- 페이지 접속 시 해당 컴포넌트만 로딩
+- 초기 번들 사이즈 감소
+
+---
+
+# **📜 *17. 가상 스크롤***
+
+- react-virtualized List 적용
+- 화면에 보이는 카드만 DOM에 렌더링
+- 100개 데이터도 실제 DOM엔 일부만 존재
+- 웹 3열 / 태블릿 2열 / 모바일 1열 반응형 적용
+
+---
+
+# **🚀 *18. 성능 최적화***
+
+| 단계 | 적용 최적화 | Render 시간 | 컴포넌트 |
+| --- | --- | --- | --- |
+| **최적화 전** | 없음(레시피 데이터가 1000개 이상 넘어가는 재료가 없어 더미데이터로 1000개 주입 후 테스트)  | **459.8ms** | `RecipeUnoptimized (78.4ms of 459.8ms)` |
+| **가상 스크롤 적용** | `react-virtualized` (List + AutoSizer + Grid) | **46.2ms** | `Recipe (2.2ms of 46.2ms)` |
+| **최종 (useCallback 적용)** | `react-virtualized` + `useCallback` + `memo` | **7.2ms** | `Recipe (0.6ms of 7.2ms)` |
+
+![둘다 x.png](attachment:cacab4fb-9421-43cc-8c70-c74b5e435a2a:둘다_x.png)
+
+![가상스크롤(o), usecallback (x).png](attachment:feeb51ad-e302-4e91-949b-b1279f2c8e8f:가상스크롤(o)_usecallback_(x).png)
+
+![최종버전.png](attachment:e7c6d302-15f6-4e97-b4c5-3e8774bd5ef3:최종버전.png)
+
+---
+
+# **📱 *19. 반응형 웹***
+
+- 웹: 3열 그리드
+- 태블릿: 2열 그리드
+- 모바일: 1열 그리드
+- SCSS 믹스인 기반 반응형 스타일 적용
+
+![image.png](attachment:25e18e00-a23a-4b36-ab10-649175a9f509:image.png)
+
+![image.png](attachment:29470094-ef41-44cb-9f5f-189dfbb70715:image.png)
+
+![image.png](attachment:4cb01791-355d-4709-b4c7-aaa7c4efb671:image.png)
+
+---
+
+# **📊 *20. Flow Chart***
+
+플로우차트
+
+---
+
+# **👀 *21. 주요 기능 실행 화면***
+
+- 홈 페이지 (증상 입력)
+- 결과 페이지 (영양제/식재료 탭)
+- 레시피 페이지 (카드 목록, 모달 팝업)
+- 즐겨찾기 페이지 (필터탭, 메모편집)
+- 검색기록 페이지 (리스트뷰, 타임라인뷰)
+
+---
+
+# **👥 *22. 팀원별 작업 기록***
+
+개인 작업일지 url
+
+---
+
+# **💡 *23. 향후 발전 방향***
+
+- 증상 분석 정확도 향상 — Gemini 프롬프트 고도화 및 사용자 피드백 반영으로 영양소 추천 정밀도 개선
+- 쇼핑 연동 확대 — 쿠팡 공식 API 연동 및 가격 비교 기능 추가로 더 나은 구매 경험 제공
+- 회원 맞춤 기능 강화 — 건강 목표·알레르기·선호 재료 등 사용자 프로필 기반 개인화 추천
+- 백엔드 서버 연동 — 현재 localStorage 기반 저장을 서버 DB로 전환하여 기기 간 데이터 동기화
+- 모바일 앱 전환 — React Native 기반으로 확장하여 푸시 알림·건강 기록 트래킹 기능 추가
+
+---
+
+# **🏁 *24. 프로젝트 마무리***
+
+이번 프로젝트 「CareEat」은 사용자의 건강 증상을 자연어로 입력하면 AI가 분석하여 필요한 영양소·영양제·식재료를 추천하고, 레시피와 쇼핑 구매 링크까지 연결해주는 건강 관리 웹 애플리케이션을 목표로 개발하였습니다. 7일간의 짧은 개발 기간 동안 팀원들과 역할을 분담하여 React 기반 SPA, Gemini AI 연동, 식약처·네이버 쇼핑 외부 API 연동, 무한 스크롤, 가상 스크롤, 코드 스플리팅, Redux 상태 관리 등 다양한 기술을 직접 설계·구현했습니다.
+
+이를 통해 프론트엔드 구조 설계 능력, 외부 API와 AI를 결합한 서비스 구현 경험, 협업을 통한 문제 해결 능력, 그리고 사용자 경험(UX)을 고려한 성능 최적화 역량을 함께 성장시킬 수 있었습니다.
